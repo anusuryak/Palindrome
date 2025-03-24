@@ -1,1 +1,90 @@
+package String;
+import java.io.BufferedReader;
+	class Palin
+	{
+	String findtext;
+	int textlength;
+	}
+	public class Palindrome{
+	static String[]  palindrome_filter(String Longtext)
+	{
+	boolean b;
+	int x=0;
+	String words[]=new String[32];
+	String Palindrome_words[]=new String[10];
+
+	    words=Longtext.split("\\s");    
+
+	   for(int index=0;index<words.length;index++)
+	   {
+	   
+	    b=Check_Palindrome(words[index]);
+	   
+	    if(b==true)
+	    {
+	    Palindrome_words[x]=words[index];  
+	    x++;
+	    }   
+	   }
+	return(Palindrome_words);
+	}
+	static boolean Check_Palindrome(String text)   
+	{
+	boolean plain_status=false;
+	   String temp;   
+	StringBuffer sb =new StringBuffer(text);
+	temp=sb.reverse().toString();            
+	                                //   100   200           true
+	   if(temp.equals(text))          //      s1==s2         s1.equals(s2)  
+	   {
+	    plain_status=true;
+	   }
+	   else
+	   {
+	    plain_status=false;
+	   }
+	return plain_status;
+	}
+	public static void main(String[] args) {
+	boolean b;
+	String lt="This is RamaR java Trining program vaajavajaav conducted by madam ,radar appa she is learning malayalam her amma in palakkad";
+	String Words[]=new String[12];
+
+	Words=palindrome_filter(lt);
+
+	for(int x=0;x<Words.length;x++)
+	{
+	System.out.println(""+Words[x]);
+	}
+	b=Check_Palindrome("madam");        
+
+	if(b==true)
+	{
+	System.out.println("String is Palindrome");
+	}
+	else
+	{
+	System.out.println("String is NOT Palindrome");
+	}
+	//......................................
+	int Palin_count=0;
+	int max=0;
+	int poisition=0;
+	for(int i=0;i<Words.length;i++)
+	{
+	if(Words[i]!=null)
+	{
+
+	if(max<=Words[i].length())
+	{
+	max=Words[i].length();
+	poisition=i;
+	}
+	Palin_count++;
+	}
+	}
+	System.out.println("No of Palindrome in this long sentence is:"+Palin_count);
+	System.out.println("Longest Palindrome is :"+Words[poisition]+"\tLength is : "+Words[poisition].length());
+	}
+}
 

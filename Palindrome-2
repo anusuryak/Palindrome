@@ -1,1 +1,43 @@
+package String;
+	import java.util.Scanner;
+
+	public class MyPalindrome {
+	public static boolean myPalindrome(String text)
+	{
+
+	boolean status=false;
+
+	StringBuffer sb=new StringBuffer(text);
+
+
+	String strResult=sb.reverse().toString();
+
+	if(strResult.equals(text))
+	{
+	status=true;
+	}
+	else
+	{
+	status=false;
+	}
+
+	return(status);
+
+	}
+
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter text:");
+	String text=sc.nextLine(); 
+	boolean x=myPalindrome(text);
+	if(x)
+	{
+	System.out.println("Palindrome");
+	}
+	else
+	{
+	System.out.println("Palindrome NOTTTTT");
+	}
+	}
+}
 
